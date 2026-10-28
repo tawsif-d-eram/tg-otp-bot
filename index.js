@@ -30,7 +30,7 @@ const TARGET_BOT = "klyxx_bot";
 const TEST_CHANNEL = "testerx2026";
 const TEST_REPLY = "Bot is working";
 
-const POLL_MS = 2000; // safety-net poll of the main channel; 0 turns it off
+const POLL_MS = 1000; // safety-net poll of the main channel; 0 turns it off
 const MAX_EDIT_AGE_S = 300; // edits of posts older than this are ignored
 
 const SESSION_FILE = "telegram-session.txt";
