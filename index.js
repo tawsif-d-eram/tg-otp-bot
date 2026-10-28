@@ -150,7 +150,6 @@ async function main() {
   await client.getDialogs({ limit: 100 }); // warms the cache so channel updates arrive
 
   const botPeer = await client.getInputEntity(TARGET_BOT);
-  const botUser = new Api.InputUser({ userId: botPeer.userId, accessHash: botPeer.accessHash });
 
   let testChannel = null;
   let testChannelId = null;
@@ -178,24 +177,19 @@ async function main() {
       }
       return;
     }
+    const updatedCode = code?.startsWith('promo') ? code.split("promo_")[1] : code;
 
     remember(seen, msg.id);
     const t0 = Date.now();
     client
-      .invoke(
-        new Api.messages.StartBot({
-          bot: botUser,
-          peer: botPeer,
-          randomId: generateRandomBigInt(),
-          startParam: code,
-        })
-      )
+      .sendMessage(botPeer, { message: updatedCode })
+      .then(() => client.sendMessage(botPeer, { message: FOLLOW_UP }))
       .then(() =>
         console.log(
-          `Started @${TARGET_BOT} with parameter: ${code} (post ${msg.id}, ${via}, ${Date.now() - t0}ms)`
+          `Sent code to @${TARGET_BOT}: ${code} + "${FOLLOW_UP}" (post ${msg.id}, ${via}, ${Date.now() - t0}ms)`
         )
       )
-      .catch((err) => console.error("StartBot failed:", err.message));
+      .catch((err) => console.error("Sending code failed:", err.message));
   };
 
   const onUpdate = (update) => {
