@@ -20,8 +20,8 @@ const { StringSession } = require("telegram/sessions");
 const { Raw } = require("telegram/events");
 const { generateRandomBigInt } = require("telegram/Helpers");
 
-const apiId = 38564953;
-const apiHash = "55caa3ce808da805b803bf6661f457b3";
+const apiId = 34631044;
+const apiHash = "c28fb6dfa28b9396a6f7aed1d36dd3ba";
 
 const CHANNEL = "klyx_news";
 const TARGET_BOT = "klyxx_bot";
@@ -41,7 +41,7 @@ const DEBUG = process.env.DEBUG === "1";
 // otherwise falls back to the hardcoded session string below.
 const SESSION = fs.existsSync(SESSION_FILE)
   ? fs.readFileSync(SESSION_FILE, "utf8").trim()
-  : "1BQANOTEuMTA4LjU2LjEyNgG7KDOESQ3XBdQTSCEP8DoKSuL4aNa43T2IlWl7FYtA/V0ztSL3NOo7Ma1g6sro3QYykFst4P6EvfdFlgCd13BhHU415BlghLlbauWU5mkgUSKOnq9562pL41HJnt+Wh1d+6iLM+7+MAcUk9F7Pf91UQ8raTtJyEgj9AIFVdbKkzoNfLBSlIklBglNKfvfUUxhzky8OYo911tfsPuOjoXtKdngQDlTuf21DnO3rmn/vBIFqFlclCqaqLN1ycD6SjOYqCiBFw6GsP7eDBcu799XpPVEWxSi5/NA+dMsgiTanjqouhM1imNQa6TX7N0UcZo0VgzaWVypB52wfh0gAXtcd4A==";
+  : "1BQANOTEuMTA4LjU2LjEyNgG7QPsJdtc49hP0XEW6a7je9eEbuS1B8nn+hgpw9BrFt+RKWPDkYVAU1N3PCMX51x5ixLlZK6Bl+O5b/34ZDfjLmr0E9IYPzRwTp4XuLTuanhc3jguMIH60BnmmuXtuyUQ5/CocJCHOIJPxL1tRk+rYI1CFljZssXIWYmD0rr2qEBSecxclq80J3Hg/fya6CAwoJVoXagWWJ1UrEE0BUIsEhmcVz9G6dNwtPiSrBI9VW2woal4vGfEAkSv5Y0tneS0Ryt0ukWD3tG1LAiQfo99TcBMjrWKoa07pze2bO/JPL8cU6CD35igUOGWi9IxTxUHku7RPBPA1e+hYAj7lObxZzA==";
 
 // ---------- keep-alive web server (Express, stripped down) ----------
 const app = express();
